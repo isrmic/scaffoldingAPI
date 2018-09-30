@@ -2,21 +2,19 @@ const fs = require('fs');
 
 const extregex = /.js$/;
 
-const resolvers = { querys: {}, mutations: {} };
+const pathResolvers = {
+    fields: { folder: 'Fields', result: fs.readdirSync('./resolvers/Fields').filter(each => extregex.test(each)) },
+    querys: { folder: 'Querys', result: fs.readdirSync('./resolvers/Querys').filter(each => extregex.test(each)) },
+    mutations: { folder: 'Mutations', result: fs.readdirSync('./resolvers/Mutations').filter(each => extregex.test(each)) }
+};
 
-const pathQuerys = fs.readdirSync('./resolvers/Querys');
-const pathMutations = fs.readdirSync('./resolvers/Mutations');
+const resolvers = { querys: {}, mutations: {}, fields: {} };
 
-pathQuerys.map(each => {
-    if (extregex.test(each)) {
-        resolvers.querys[each.replace(extregex, '')] = require(`./Querys/${each}`);
-    }
-})
-
-pathMutations.map(each => {
-    if (extregex.test(each)) {
-        resolvers.mutations[each.replace(extregex)] = require(`./Mutations/${each}`);
-    }    
-})
+for (let key in pathResolvers) {
+    
+    pathResolvers[key].result.map(each => {
+        resolvers[key][each.replace(extregex, '')] = require(`./${pathResolvers[key].folder}/${each}`);
+    })
+}
 
 module.exports = resolvers;

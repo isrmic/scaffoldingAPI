@@ -1,4 +1,4 @@
-const users = () => async (root, args, context) => {
+const users = () => async (root, args, context, info) => {
     
     return [
         { userid: 1, username: 'user1'},

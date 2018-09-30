@@ -12,7 +12,7 @@ const generateResolverSchema  = (obj) => {
 
 const getResolvers = (condiction) => {
 
-    const resolvers = {};
+    const resolvers = { ...generateResolverSchema(loadResolvers.fields)};
     
     resolvers.Query = { ...generateResolverSchema(loadResolvers.querys) };
     
