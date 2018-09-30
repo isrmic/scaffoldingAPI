@@ -1,0 +1,15 @@
+{
+  "name": "scaffolding",
+  "version": "1.0.0",
+  "description": "A simple scaffolding to API with GraphQL",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "isrmic",
+  "license": "MIT",
+  "dependencies": {
+    "apollo-server": "^2.1.0",
+    "graphql": "^14.0.2"
+  }
+}
