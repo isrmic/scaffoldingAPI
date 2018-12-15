@@ -1,8 +1,9 @@
+#query example
 type Query {
-    users: [User]
+    example: [Example]
 }
-type User {
-    userid: Int
-    username: String
-    descript(replace: String): String
+#type example for test
+type Example {
+    field1: String,
+    field2: Int
 }

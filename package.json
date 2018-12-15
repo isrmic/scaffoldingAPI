@@ -4,7 +4,7 @@
   "description": "A simple scaffolding to API with GraphQL",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node tests/testexample/index.js"
   },
   "author": "isrmic",
   "license": "MIT",
