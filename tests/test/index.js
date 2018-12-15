@@ -26,9 +26,8 @@ const test = async () => {
     const response = await graphql(schema, query || ' { example { field1 field2 } } ', root);
 
     //output data returned
-    console.log(response.data.example);
+    console.log('Result: \r\n\r\n', response.data.example);
 
 };
-
 
 test();

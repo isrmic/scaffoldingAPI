@@ -4,7 +4,7 @@
   "description": "A simple scaffolding to API with GraphQL",
   "main": "index.js",
   "scripts": {
-    "test": "node tests/testexample/index.js"
+    "test": "node tests/test/index.js"
   },
   "author": "isrmic",
   "license": "MIT",
