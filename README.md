@@ -5,5 +5,5 @@ Projetos projects used:
   - [Apollo Server](https://github.com/apollographql/apollo-server)
   - [GraphQl](https://github.com/graphql/graphql-js)
 
-# Como usar
+# How to use
 Coming soon ...
