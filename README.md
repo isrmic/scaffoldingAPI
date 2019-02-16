@@ -32,6 +32,12 @@ Example:
 type Query {
     example: [Example]
 }
+#type example for test
+type Example {
+    field1: String
+    field2: String
+    field3: String
+}
 ```
 // resolvers/Query/example.js
 ```javascript
