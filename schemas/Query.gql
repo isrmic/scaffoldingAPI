@@ -4,6 +4,7 @@ type Query {
 }
 #type example for test
 type Example {
-    field1: String,
-    field2: Int
+    field1: String
+    field2: String
+    field3: String
 }

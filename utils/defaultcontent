@@ -1,0 +1,5 @@
+const {nameresolver} = () => async ({params}) => {
+    //definition of resolver
+};
+
+module.exports = {nameresolver};

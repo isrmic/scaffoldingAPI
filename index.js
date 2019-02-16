@@ -5,26 +5,34 @@ const Connection = require('./connection/index');
 const resolvers = require('./resolvers/index');
 const schema = require('./schemas/index');
 
+const { output, outputln } = require('./utils/output');
+
 const typeDefs = gql(`
     ${schema.Query}
     ${schema.Mutation}
 `);
 
-const Start = async () => {
 
+const Start = async () => {
+    
     const db = await Connection();
 
-    const server = new ApolloServer(
-        {
-            typeDefs,
-            resolvers: resolvers(schema.Mutation !== ''),
-            context: ({req}) => ( { db } ) 
-        }
-    );        
+    const defs = {
+        typeDefs,
+        resolvers: resolvers(schema.Mutation !== ''),
+        context: ({req}) => ( { db } ),
+    };
+    
+    const server = new ApolloServer(defs);
 
-    server.listen({port: 3000}).then(() => {
-        console.log('Server is started on port 3000')
-    });
+    const infos = await server.listen({port: 3000, host: 'localhost'});
+    output(`server is started at port ${infos.port}`, "cyan");
+    output(`the server is acessible on: ${infos.url}`, 'green');
+};
+
+try {
+    Start();
 }
-
-Start();
+catch (err) {
+    throw err;
+}

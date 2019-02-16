@@ -1,19 +1,16 @@
-const example = () => async (root, args, context) => {
-    
-    //data returned when resolver for "example" is called
+const example = () => async (root, args, context, info) => {
     const data = [
         {
-            field1: 'this is any string',
-            field2: 7, //any integer
+            field1: 'this is a field1',
+            field2: 'this is a field2',
         },
         {
-            field1: 'this is any string',
-            field2: 14, //any integer
+            field1: 'this is a field1 of object 2',
+            field2: 'this is a field2 of object 2',
         }
     ];
-    
-    return data;
 
+    return data;
 };
 
 module.exports = example;
