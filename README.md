@@ -107,3 +107,5 @@ Result:
      { field1: 'this is a field1 of object 2',
        field2: 'this is a field2 of object 2' } ] }
 ```
+# License
+MIT
