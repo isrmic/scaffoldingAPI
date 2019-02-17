@@ -73,7 +73,7 @@ NOTE: this will work for both querys and mutations, the difference is even in th
 
 Resolvers can also be created from a simple command:
 ```
-npm run generate query "nameresolver"
+npm run generate <query || mutation> <nameresolver>
 ```
 
 # Tests
