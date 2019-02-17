@@ -10,8 +10,8 @@ Projetos projects used:
 
 Download the repository for your machine:
 
-- ```git clone https://github.com/isrmic/scaffoldingAPI```
-- ```cd scaffoldingAPI```
+- ```git clone https://github.com/isrmic/scaffoldingAPI myproj```
+- ```cd myproj```
 - ```npm install```
 - ```npm run start```
 
