@@ -71,7 +71,10 @@ module.exports = test;
 A function that returns another asynchronous or synchronous function (function, arow function) is exported, and this function that is returned by the test function is the resolver that will return the data as requested.
 NOTE: this will work for both querys and mutations, the difference is even in the organization by the separation of the files.
 
-Resolvers can also be created from a simple command
+Resolvers can also be created from a simple command:
+```
+npm run generate query "nameresolver"
+```
 
 # Tests
 You can do a test of how everything works before even starting the server for tests in the playground, if you want to test the example already you can execute the following command:
