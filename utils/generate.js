@@ -1,7 +1,7 @@
 const fs = require('fs');
 const { join } = require('path');
 
-const { output, outputln } = require('./output');
+const { output } = require('outputjsc');
 
 //load default content of resolver
 const defaultcontent = fs.readFileSync(join(__dirname, 'defaultcontent'), 'utf8');
@@ -9,17 +9,21 @@ const defaultcontent = fs.readFileSync(join(__dirname, 'defaultcontent'), 'utf8'
 //define args
 const args = Array.prototype.slice.call(process.argv, 2);
 
-let type = args[0].toUpperCase();
+let type = args[0];
 
-type = type === "QUERY" ? 'Querys' : type === 'MUTATION' ? 'Mutations' : null;
-
-if (type === null) {
-    outputln(`Tipo "${args[0]}" não definido`, 'red');
-    output(`try run it: `, 'yellow');
-    outputln(`"generate <query||mutation> <name_resolver> <true||false>(with_args)"`, 'cyan');
-    output(` example: "generate query getusers true"`, 'yellow');
+if (type === null || type === undefined) {
+    output
+      .bgred(' ERROR ').white(':').spc().red(`Type não foi definido`)
+      .ln()
+      .bgwhite(` TRY RUN IT `, 'cyan').spc().white(':')
+      .cyan(`"generate <query||mutation> <name_resolver> <true||false>(with_args)"`)
+      .ln()
+      .bgwhite(' EXAMPLE ', 'cyan').white(':').spc().cyan('"generate query getusers true"');
     process.exit(0);
 }
+
+type = type.toUpperCase();
+type = type === "QUERY" ? 'Querys' : type === 'MUTATION' ? 'Mutations' : null;
 
 const namefile = args[1];
 
@@ -32,7 +36,12 @@ fs.writeFile(pathfile, generatefilecontent, (err) => {
     if(err)
         throw err;
     // console.log('%c arquivo gerado com sucesso!', 'color:#f12');
-    output('arquivo criado com sucesso!!', 'green');
-    output(`caminho: ${pathfile}`, 'cyan')
+    output
+      .bggreen(' SUCCESS ')
+      .white(': ')
+      .green('arquivo criado com sucesso!!')
+      .ln()
+      .white('caminho : ')
+      .cyan(`${pathfile}`);
 });
 
